@@ -9,7 +9,7 @@ print(data)
 X = data[:, 0:-1]
 Y = data[:, -1]
 N, d = X.shape
-print(X)
+print(X.shape)
 
 # Separate the positive from the negative class
 positive_class = X[Y==1., :]
