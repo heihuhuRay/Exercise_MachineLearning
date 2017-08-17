@@ -4,15 +4,16 @@ import matplotlib.pyplot as plt
 
 # Load the data set
 data = np.loadtxt('linear.data')
-print(data)
+#print(data)
 # Separate the input from the output
 X = data[:, 0:-1]
 Y = data[:, -1]
 N, d = X.shape
-print(X.shape)
+#print(X.shape)
 
 # Separate the positive from the negative class
 positive_class = X[Y==1., :]
+#print(positive_class)
 negative_class = X[Y==-1., :]
 
 def Visual(x,y):
@@ -43,6 +44,7 @@ def Calculate_err(w,b):
 
 
 eta = 0.1
+#Initialize the weight vector and bias to 0
 w = np.zeros(d)
 b = 0.0
 for i in range(N):
@@ -50,8 +52,8 @@ for i in range(N):
 	w = w + eta*(Y[i] - f_W)*X[i,:] #Y[i] just means one single value, while X[i,:] means the whole column
 	b = b + eta*(Y[i] - f_W)		# the rules for bais(Online Version) in lecture02.page 27 
 	#print(w, b)
-#Visual(w,b)
-
+Visual(w,b)
+'''
 print(Calculate_err(w,b))
 Err, gamma = Calculate_err(w,b)
 print('Functional margin:', gamma)
@@ -61,3 +63,4 @@ if gamma < 0:
 		Calculate_err(w, b)
 	if np.linalg.norm(w - old_w) < 0.01*np.linalg.norm(old_w):
 		pass
+'''
